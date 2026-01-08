@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyen Minh Khoi - Network Engineer Portfolio</title>
+    
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        
+        html {
+            scroll-behavior: smooth; 
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333333;
+            padding-top: 70px; 
+        }
+
+        section {
+            scroll-margin-top: 80px; 
+        }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            box-shadow: 0 2px 10px rgba(48, 7, 233, 0.1);
+            transition: all 0.3s ease;
+            background-color: #004085 !important;
+        }
+
+        .navbar-brand img {
+            object-fit: cover;
+        }
+
+        
+        #hero {
+            background: linear-gradient(135deg, #e7eff9 0%, #ffffff 100%);
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .career-goals {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-left: 5px solid #007bff;
+            border-radius: 4px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        .contact-mini-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+        .contact-mini-item i {
+            color: #007bff;
+            width: 30px;
+            text-align: center;
+            margin-right: 10px;
+        }
+
+        .profile-wrapper {
+            position: relative;
+            display: inline-block;
+            border-radius: 50%;
+            padding: 10px;
+            background: #fff;
+            box-shadow: 0 10px 30px rgba(0,123,255,0.2);
+            margin-top: 20px;
+        }
+
+        .profile-img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 50%;
+            border: 5px solid #f0f0f0;
+            transition: transform 0.5s ease;
+        }
+
+        .profile-wrapper:hover .profile-img {
+            transform: scale(1.02);
+        }
+
+        /* --- SOCIAL ICONS --- */
+        .social-btn {
+            display: inline-flex;
+            width: 45px;
+            height: 45px;
+            background: #fff;
+            color: #2d60ec;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-decoration: none !important;
+        }
+        .social-btn:hover {
+            background: #007bff;
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        /* --- SKILLS SECTION --- */
+        .skill-card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            height: 100%;
+            transition: transform 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-bottom: 3px solid #007bff;
+        }
+        .skill-icon {
+            font-size: 2.5rem;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        /* --- PROJECTS SECTION --- */
+        .experience-box {
+            background: #fff;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .experience-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .experience-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+        
+        .experience-content.show {
+            max-height: 800px;
+            transition: max-height 0.6s ease-in;
+        }
+
+        /* --- NEW PROFESSIONAL CONTACT CSS --- */
+        .contact-wrapper {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        /* --- CẬP NHẬT LẠI BỐ CỤC CONTACT INFO --- */
+
+/* 1. Căn giữa toàn bộ nội dung trong cột xanh */
+/* --- CONTACT INFO - CĂN CHỈNH ĐỀU ĐẸP --- */
+
+        .contact-info-pro {
+            background: linear-gradient(135deg, #004085 0%, #0069d9 100%);
+            padding: 50px 35px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+            min-height: 500px;
+        }
+
+/* Các vòng tròn trang trí background */
+        .contact-info-pro::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .contact-info-pro::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+/* Container chứa toàn bộ nội dung */
+        .info-container {
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+/* Tiêu đề và mô tả */
+        .contact-info-pro h3 {
+            font-size: 1.75rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-info-pro > p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.85;
+            margin-bottom: 35px;
+        }
+
+/* Các dòng thông tin liên hệ */
+.info-item-pro {
+    display: flex;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.icon-box-pro {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin-right: 18px;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.info-item-pro:hover .icon-box-pro {
+    transform: scale(1.1);
+    background: #fff;
+    color: #004085;
+    box-shadow: 0 0 15px rgba(255,255,255,0.3);
+}
+
+.info-item-pro > div:last-child {
+    flex: 1;
+}
+
+.info-item-pro h6 {
+    font-size: 0.95rem;
+    margin-bottom: 3px;
+    font-weight: 600;
+}
+
+.info-item-pro .small {
+    font-size: 0.875rem;
+    opacity: 0.9;
+    line-height: 1.4;
+}
+/* Chỉnh lại phần Social Link một chút */
+        .social-links-pro a {
+            display: inline-flex;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    transition: 0.3s;
+    text-decoration: none;
+    color: white;
+}
+        .social-links-pro a:hover {
+            background: white;
+            color: #004085;
+            transform: translateY(-3px);
+        }
+
+        .form-box-pro {
+            padding: 50px 40px;
+        }
+
+        .input-pro {
+            background: #f8f9fa;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            padding: 25px 20px 10px; 
+            height: 50px;
+            transition: all 0.3s;
+        }
+
+        .input-pro:focus {
+            background: #fff;
+            border-color: #004085;
+            box-shadow: 0 0 0 4px rgba(0, 64, 133, 0.1);
+        }
+
+        textarea.input-pro {
+            height: auto;
+            padding: 15px 20px;
+        }
+
+        /* Status Badge Animation */
+        .status-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background-color: #d4edda;
+            border: 1px solid #28a745;
+            color: #28a745;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .status-badge i {
+            font-size: 0.6rem;
+            vertical-align: middle;
+            margin-right: 5px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        .btn-send {
+            transition: 0.3s;
+        }
+        .btn-send:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,123,255,0.3) !important;
+        }
+
+        /* Responsive Fixes */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .profile-img { max-width: 280px; }
+            .contact-info-pro, .form-box-pro { padding: 30px 20px; }
+        }
+        /* === CENTER TEXT CONTACT INFO === */
+/* === CONTACT INFO ALIGN CLEAN & PROFESSIONAL === */
+
+/* === CONTACT INFO: BLOCK CENTER - TEXT LEFT === */
+
+.contact-info-pro {
+    display: flex;
+    justify-content: center;
+}
+
+/* Container nội dung */
+.contact-info-pro .info-container {
+    max-width: 360px;
+    width: 100%;
+}
+
+/* Tiêu đề & mô tả */
+.contact-info-pro h3,
+.contact-info-pro > p {
+    text-align: center;
+}
+
+/* Mỗi dòng info */
+.contact-info-pro .info-item-pro {
+    display: flex;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+/* Icon */
+.contact-info-pro .icon-box-pro {
+    margin-right: 16px;
+}
+
+/* Chữ nằm trái */
+.contact-info-pro h6,
+.contact-info-pro .small {
+    text-align: left;
+}
+
+/* Follow me */
+.social-links-pro {
+    text-align: center;
+}
+/* === SHIFT ICON + TEXT SLIGHTLY TO THE RIGHT === */
+
+/* Xích toàn bộ từng dòng (icon + chữ) */
+.contact-info-pro .info-item-pro {
+    padding-left: 12px; /* chỉnh 10–16px nếu muốn */
+}
+
+/* Xích Follow Me */
+.social-links-pro {
+    padding-left: 12px;
+}
+
+    </style>
+</head>
+<body data-spy="scroll" data-target="#navbarNav" data-offset="100">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand font-weight-bold" href="#hero">
+                <img src="image/chandung.png" alt="Avatar" width="35" height="35" class="rounded-circle mr-2">
+                Minh Khoi
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#hero">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skill</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-2 order-lg-1">
+                    <h4>Hello</h4>
+                    <h1 class="display-4 font-weight-bold mb-3">Nguyen Minh Khoi <span class="text-primary">.</span></h1>
+                    <h5 class="text-muted mb-4">Network Systems Engineer & IoT Developer</h5>
+                    
+                    <div class="career-goals">
+                        <p class="mb-0">
+                            "I am seeking an internship in the networking field to hone my practical skills in network device configuration, troubleshooting, server management, and system security. My goal is to gain experience in developing and deploying network infrastructure, ultimately becoming a Network Systems Engineer and contributing to the building of stable and secure systems for businesses."
+                        </p>
+                    </div>
+
+                    <div class="mt-4 mb-4">
+                        <div class="contact-mini-item">
+                            <i class="fas fa-phone-alt"></i> <span>0816 016 304</span>
+                        </div>
+                        <div class="contact-mini-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:khoinm1603@gmail.com?subject=Internship%20Opportunity">khoinm1603@gmail.com</a>
+                        </div>
+
+                    </div>
+
+                    <div class="social-icons">
+                        <a href="https://github.com/khoinm2004" target="_blank" class="social-btn" aria-label="Github">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.facebook.com/khoi.nguyen.321029" class="social-btn" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/kh%C3%B4i-nguy%E1%BB%85n-183764398/" class="social-btn" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#projects" class="btn btn-primary btn-lg rounded-pill px-4 ml-2 shadow" title="View project">
+                            Projects <i class="fas fa-arrow-down ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 text-center order-1 order-lg-2 mb-5 mb-lg-0">
+                    <div class="profile-wrapper">
+                        <img src="image/1.jpg" alt="Nguyen Minh Khoi" class="profile-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5 font-weight-bold">Professional Skills</h2>
+            <div class="row">
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="skill-card text-center">
+                        <div class="skill-icon"><i class="fas fa-network-wired"></i></div>
+                        <h5 class="font-weight-bold">Networking</h5>
+                        <p class="small text-muted text-left">
+                            LAN/WLAN, Routers, Switches, TCP/IP, DHCP, DNS, VPN (Site-to-Site, Client-to-Site).
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="skill-card text-center">
+                        <div class="skill-icon"><i class="fas fa-server"></i></div>
+                        <h5 class="font-weight-bold">System Admin</h5>
+                        <p class="small text-muted text-left">
+                            Ubuntu Server administration, VMware virtualization environment, network and local server security.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="skill-card text-center">
+                        <div class="skill-icon"><i class="fas fa-cloud"></i></div>
+                        <h5 class="font-weight-bold">Cloud & Web</h5>
+                        <p class="small text-muted text-left">
+                            Deploying Web Servers (Apache, Nginx, MySQL) on Cloud infrastructure.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="skill-card text-center">
+                        <div class="skill-icon"><i class="fas fa-code"></i></div>
+                        <h5 class="font-weight-bold">Programming</h5>
+                        <p class="small text-muted text-left">
+                            Application programming & task automation with Python, C++, Java.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-center mt-5 mb-4">Soft Skills</h3>
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <div class="row text-center">
+                        <div class="col-6 col-md-3 mb-3">
+                            <div class="p-3 bg-white rounded shadow-sm h-100 border">
+                                <i class="fas fa-users fa-2x text-info mb-2"></i>
+                                <h6 class="font-weight-bold">Teamwork</h6>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 mb-3">
+                            <div class="p-3 bg-white rounded shadow-sm h-100 border">
+                                <i class="fas fa-clock fa-2x text-warning mb-2"></i>
+                                <h6 class="font-weight-bold">Time management</h6>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 mb-3">
+                            <div class="p-3 bg-white rounded shadow-sm h-100 border">
+                                <i class="fas fa-brain fa-2x text-danger mb-2"></i>
+                                <h6 class="font-weight-bold">Logical Thinking</h6>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 mb-3">
+                            <div class="p-3 bg-white rounded shadow-sm h-100 border">
+                                <i class="fas fa-book-reader fa-2x text-success mb-2"></i>
+                                <h6 class="font-weight-bold">Be proactive in learning.</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 font-weight-bold">Projects</h2>
+            <div class="row justify-content-center">
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="experience-box p-4">
+                        <div>
+                            <span class="badge badge-primary mb-2">Network System</span>
+                            <h5 class="font-weight-bold">DESIGN NETWORK 25PC GAMING ROOM</h5>
+                            <div class="experience-content" id="content1">
+                                <hr>
+                                <ul class="text-left small pl-3">
+                                    <li><strong>Responsibilities: </strong>Design network diagrams, configure switches, routers, and servers to ensure high-speed and stable connections for 25 workstations.</li>
+                                    <li><strong>Actions: </strong> Set up a DHCP server to automate IP address allocation and deploy a VPN solution to secure remote connections.</li>
+                                </ul>
+                                <li><strong>Results: </strong> The system operates with low latency, high security, and easy centralized management.</li>
+                            </div>
+                        </div>
+                        <div class="text-center mt-3">
+                            <button class="btn btn-outline-primary btn-sm rounded-pill px-4" onclick="toggleContent('content1', this)">Detail</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="experience-box p-4">
+                        <div>
+                            <span class="badge badge-success mb-2">Cloud Technology</span>
+                            <h5 class="font-weight-bold">DEPLOYING VIRTUAL INFRASTRUCTURE</h5>
+                            <div class="experience-content" id="content2">
+                                <hr>
+                                <ul class="text-left small pl-3">
+                                    <li><strong>Task: </strong>Simulate and develop the operational process of an enterprise web application in a cloud computing environment.</li>
+                                    <li><strong>Action: </strong>Configure and optimize the Web Stack (Apache + MySQL + Nginx) on a cloud platform combined with VMware virtualization.</li>
+                                    <li><strong>Prioritization: </strong>TConfigure to increase page load speed by 30% through Gzip compression and cache optimization.</li>
+                                </ul>
+                                <li><strong>Result: </strong>Master the operation process of virtual servers, optimized web server performance, and security system administration.</li>
+                            </div>
+                        </div>
+                        <div class="text-center mt-3">
+                            <button class="btn btn-outline-success btn-sm rounded-pill px-4" onclick="toggleContent('content2', this)">Detail</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="experience-box p-4">
+                        <div>
+                            <span class="badge badge-danger mb-2">IoT Security</span>
+                            <h5 class="font-weight-bold">RFID SECURITY SYSTEM & ESP32</h5>
+                            <div class="experience-content" id="content3">
+                                <hr>
+                                <ul class="text-left small pl-3">
+                                    <li><strong>RFID Access Control: </strong>Whitelist authentication, automatic alarm activation, intruder image capture, and system lockout upon detecting unauthorized access.</li>
+                                    <li><strong>Multi-Platform Monitoring: </strong>Integrated Web Dashboard for real-time image transmission and Telegram Bot for remote control, receiving instant image alerts via SSL/TLS.</li>
+                                    <li><strong>Cloud Storage & Analytics: </strong>Automatically stores image evidence in Flash memory (SPIFFS) and synchronizes statistical metrics (access/alarms) to ThingSpeak Cloud.</li>
+                                    <li><strong>Performance Optimization: </strong>Non-blocking architecture ensures stable 24/7 system operation, optimizing bandwidth for image transmission and real-time data processing.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="text-center mt-3">
+                            <button class="btn btn-outline-danger btn-sm rounded-pill px-4" onclick="toggleContent('content3', this)">Detail</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h5 class="text-primary font-weight-bold text-uppercase ls-1">Get in Touch</h5>
+                <h2 class="font-weight-bold display-4">Contact Me</h2>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-11">
+                    <div class="contact-wrapper">
+                        <div class="row no-gutters">
+                            
+                            <div class="col-md-5 contact-info-pro">
+                                <div class="info-container"></div>
+                                    <h3 class="font-weight-bold mb-3">Contact Info</h3>
+                                        <p class="mb-4" style="opacity: 0.8;">
+                                            I am interested in internship opportunities specifically in Network Engineering and System Administration.
+                                        </p>
+                                
+                                    <div class="info-item-pro">
+                                        <div class="icon-box-pro">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="font-weight-bold mb-1">Location</h6>
+                                            <span class="small">District 7, Ho Chi Minh City, Vietnam</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="info-item-pro">
+                                        <div class="icon-box-pro">
+                                            <i class="fas fa-envelope"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="font-weight-bold mb-1">Email</h6>
+                                            <span class="small">khoinm1603@gmail.com</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="info-item-pro">
+                                        <div class="icon-box-pro">
+                                            <i class="fas fa-phone-alt"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="font-weight-bold mb-1">Phone</h6>
+                                            <span class="small">0816 016 304</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-5 social-links-pro">
+                                        <h6 class="font-weight-bold mb-3">Follow Me</h6>
+                                        <a href="https://github.com/khoinm2004" target="_blank"><i class="fab fa-github"></i></a>
+                                        <a href="https://www.linkedin.com/in/kh%C3%B4i-nguy%E1%BB%85n-183764398/"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.facebook.com/khoi.nguyen.321029"><i class="fab fa-facebook"></i></a>
+                                    </div>
+                                </div>
+
+                            <div class="col-md-7 form-box-pro bg-white">
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                    <h3 class="font-weight-bold mb-0">Send a Message</h3>
+                                    <div class="status-badge">
+                                        <i class="fas fa-circle text-success"></i> Open for Internship
+                                    </div>
+                                </div>
+
+                                <form id="contactForm">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <input id="name" type="text" class="form-control input-pro" placeholder="Your Name" required>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <input id="email" type="email" class="form-control input-pro" placeholder="Your Email" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input id="subject" type="text" class="form-control input-pro"placeholder="Subject (e.g. Internship Offer, Collaboration)" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea id="message" class="form-control input-pro" rows="5"placeholder="Write your message here..." required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-lg rounded-pill px-5 shadow btn-send">
+                                        Send Message <i class="fas fa-paper-plane ml-2"></i>
+                                    </button>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <div class="container">
+            <p class="mb-0 small">&copy; 2026 Nguyễn Minh Khôi. Built for Network Engineer Career.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <script>
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+
+        const mailtoLink =
+            `mailto:khoinm1603@gmail.com` +
+            `?subject=${encodeURIComponent(subject)}` +
+            `&body=${encodeURIComponent(
+                "Name: " + name + "\n" +
+                "Email: " + email + "\n\n" +
+                message
+        )}`;
+
+        window.location.href = mailtoLink;
+    });
+    </script>
+
+</body>
+</html>
