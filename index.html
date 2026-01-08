@@ -764,6 +764,19 @@
         window.location.href = mailtoLink;
     });
     </script>
+<script>
+function toggleContent(id, btn) {
+    const content = document.getElementById(id);
+
+    if (content.classList.contains('show')) {
+        content.classList.remove('show');
+        btn.innerText = "Detail";
+    } else {
+        content.classList.add('show');
+        btn.innerText = "Hide";
+    }
+}
+</script>
 
 </body>
 </html>
